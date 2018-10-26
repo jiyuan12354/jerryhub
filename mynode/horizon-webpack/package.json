@@ -1,0 +1,27 @@
+{
+  "scripts": {
+    "build": "webpack --config .webpack/webpack.config.local.js --progress --colors",
+    "watch": "./node_modules/.bin/webpack --config .webpack/webpack.config.local.js --watch",
+    "build-prod": "webpack --config .webpack/webpack.config.prod.js --progress --colors",
+    "webpack-dev-server": "webpack-dev-server --config webpack/webpack.config.local.js --host 0.0.0.0"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.4",
+    "css-loader": "^1.0.0",
+    "node-sass": "^4.9.4",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.22.0",
+    "webpack-bundle-tracker": "^0.4.2-beta",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  },
+  "dependencies": {
+    "@babel/core": "^7.1.2",
+    "ajv": "^6.5.4",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0"
+  }
+}

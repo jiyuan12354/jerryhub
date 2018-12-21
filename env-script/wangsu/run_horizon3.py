@@ -9,7 +9,7 @@ HORIZON_HOME = "/home/dengjy/horizon"
 # runserver时使用的端口
 SERVER_PORT = "8093"
 # runserver时是否启用: ip netns exec haproxy ...
-IS_NEED_IP_NETNS = True
+IS_NEED_IP_NETNS = False
 
 # 常量
 PUBLIC_LOCAL_SETTINGS = "/usr/share/openstack-dashboard/openstack_dashboard/local/local_settings.conf"
@@ -142,7 +142,7 @@ elif sys.argv[1] == "4" or sys.argv[1] == "reset_local_setting":
     # 拷贝 local_settings.py 文件
     system("cat %s > %s" % (PUBLIC_LOCAL_SETTINGS, HORIZON_LOCAL_SETTINGS,))
     # 修改 DEBUG
-    system("openstack-config --set {} DEFAULT True".format(HORIZON_LOCAL_SETTINGS))
+    system("openstack-config --set {} DEFAULT debug True".format(HORIZON_LOCAL_SETTINGS))
     # 禁止验证码校验
     replace_file_str(
         HORIZON_SETTINGS,

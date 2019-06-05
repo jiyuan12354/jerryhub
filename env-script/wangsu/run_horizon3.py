@@ -9,7 +9,7 @@ HORIZON_HOME = "/home/dengjy/horizon"
 # runserver时使用的端口
 SERVER_PORT = "8093"
 # runserver时是否启用: ip netns exec haproxy ...
-IS_NEED_IP_NETNS = False
+IS_NEED_IP_NETNS = True
 
 # 常量
 PUBLIC_LOCAL_SETTINGS = "/usr/share/openstack-dashboard/openstack_dashboard/local/local_settings.conf"
@@ -177,6 +177,13 @@ elif sys.argv[1] == "11" or sys.argv[1] == "run_nohup":
 
 elif sys.argv[1] == "12" or sys.argv[1] == "stop_nohup":
     stop_runserver()
+
+elif sys.argv[1] == "13" or sys.argv[1] == "run_nohup3":
+    stop_runserver()
+    commond = "nohup {} 3 > {}_log 2>&1 &".format(__file__, HORIZON_HOME)
+    # print("Done: {}".format(commond))
+    print("The log file is: {}_log".format(HORIZON_HOME))
+    system(commond)
 
 else:
     print("Error: Unknow Command!")
